@@ -1,6 +1,6 @@
 import styled from "styled-components";
+import { BaseIconTypes } from "./IconTypes";
 
-export const BaseIcon = styled.img`
-  width: 24px;
-  height: 24px;
+export const BaseIcon = styled.img<BaseIconTypes>`
+  width: ${({ size }) => size};
 `;
