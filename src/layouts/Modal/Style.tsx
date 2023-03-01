@@ -6,9 +6,22 @@ export const ModalBackground = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+
   display: grid;
   place-items: center;
+
   background-color: rgba(0, 0, 0, 0.5);
+
+  transition: all 0.3s ease-in-out;
+
+  &:not(.show) {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.show .modal-container {
+    transform: translateY(0);
+  }
 `;
 
 export const ModalContainer = styled.div`
@@ -16,6 +29,10 @@ export const ModalContainer = styled.div`
   min-width: 500px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 10px;
+
+  transition: all 0.5s ease-in-out;
+
+  transform: translateY(-300px);
 `;
 
 export const ModalHeader = styled.div`

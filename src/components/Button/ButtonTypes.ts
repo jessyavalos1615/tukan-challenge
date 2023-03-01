@@ -5,6 +5,7 @@ export interface BaseButtonTypes {
 export interface ButtonProps extends BaseButtonTypes {
   onClick?: (event: any) => void;
   children?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 export enum ButtonVariant {

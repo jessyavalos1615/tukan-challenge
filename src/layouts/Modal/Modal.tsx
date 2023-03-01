@@ -1,5 +1,9 @@
 import React from "react";
 
+import Button from "../../components/Button/Button";
+
+import { ModalProps } from "./ModalTypes";
+import { ButtonVariant } from "../../components/Button/ButtonTypes";
 import {
   ModalBackground,
   ModalBody,
@@ -8,20 +12,18 @@ import {
   ModalHeader,
   ModalTitle,
 } from "./Style";
-import { ModalProps } from "./ModalTypes";
-import Button from "../../components/Button/Button";
-import { ButtonVariant } from "../../components/Button/ButtonTypes";
+import classNames from "classnames";
 
-const Modal = ({ children, title }: ModalProps) => {
+const Modal = ({ title, shouldShow, onClose, children }: ModalProps) => {
   return (
-    <ModalBackground>
-      <ModalContainer>
+    <ModalBackground className={classNames({ show: shouldShow })}>
+      <ModalContainer className={classNames('modal-container')}>
         <ModalHeader>
           <ModalTitle>{title}</ModalTitle>
         </ModalHeader>
         <ModalBody>{children}</ModalBody>
         <ModalFooter>
-          <Button variant={ButtonVariant.secondary}>Cancel</Button>
+          <Button variant={ButtonVariant.secondary} onClick={onClose}>Cancel</Button>
           <Button variant={ButtonVariant.primary}>Generate</Button>
         </ModalFooter>
       </ModalContainer>
