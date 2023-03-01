@@ -9,8 +9,8 @@ import { ButtonVariant } from "./components/Button/ButtonTypes";
 function App() {
   return (
     <div className="App">
-      <Button variant={ButtonVariant.primary} onClick={(e) => console.log('first')}>
-        <Icon icon={plusIcon} alt="plus-icon" />
+      <Button data-testid='app-button' variant={ButtonVariant.primary} onClick={(e) => console.log('first')}>
+        <Icon data-testid='app-icon' icon={plusIcon} alt="plus-icon" />
       </Button>
     </div>
   );

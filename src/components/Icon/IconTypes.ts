@@ -1,4 +1,4 @@
 export interface IconProps {
-    icon?: string;
+    icon: string;
     alt?: string;
 }

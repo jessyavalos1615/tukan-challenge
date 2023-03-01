@@ -3,8 +3,8 @@ export interface BaseButtonTypes {
 }
 
 export interface ButtonProps extends BaseButtonTypes {
-  onClick: (event: any) => void;
-  children: React.ReactNode;
+  onClick?: (event: any) => void;
+  children?: React.ReactNode;
 }
 
 export enum ButtonVariant {
