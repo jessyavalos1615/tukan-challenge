@@ -27,6 +27,7 @@ export const ModalBackground = styled.div`
 export const ModalContainer = styled.div`
   display: inline-block;
   min-width: 500px;
+  max-width: 500px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 10px;
 

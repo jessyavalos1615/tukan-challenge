@@ -15,15 +15,19 @@ export const BaseButton = styled.button<BaseButtonTypes>`
   width: fit-content;
   height: 49px;
 
-  color: ${({ theme }) => theme.colors.white};
-
-  background-color: ${({ theme, variant }) =>
-    theme.colors[backgroundColor[variant]]};
-
   border-width: 0;
   border-radius: 5px;
 
   cursor: pointer;
+
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme, variant }) =>
+    theme.colors[backgroundColor[variant]]};
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 `;
 
 const backgroundColor: ButtonColors = {

@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 
 import plusIcon from "./assets/icon/plus-alt.svg";
 import { ButtonVariant } from "./components/Button/ButtonTypes";
-import Modal from "./layouts/Modal/Modal";
+import AddVisualization from "./components/AddVisualization/AddVisualization";
 
 function App() {
   const [shouldShow, setShouldShow] = useState(false);
@@ -28,13 +28,10 @@ function App() {
         <section></section>
       </main>
 
-      <Modal
-        title="Add new visualization"
+      <AddVisualization
         shouldShow={shouldShow}
         onClose={() => setShouldShow(false)}
-      >
-        Body
-      </Modal>
+      />
     </div>
   );
 }
