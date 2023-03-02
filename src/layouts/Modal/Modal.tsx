@@ -14,17 +14,28 @@ import {
 } from "./Style";
 import classNames from "classnames";
 
-const Modal = ({ title, shouldShow, onClose, children }: ModalProps) => {
+const Modal = ({
+  title,
+  onClose,
+  onSubmit,
+  children,
+  shouldShow,
+  disableSubmit,
+}: ModalProps) => {
   return (
     <ModalBackground className={classNames({ show: shouldShow })}>
-      <ModalContainer className={classNames('modal-container')}>
+      <ModalContainer className={classNames("modal-container")}>
         <ModalHeader>
           <ModalTitle>{title}</ModalTitle>
         </ModalHeader>
         <ModalBody>{children}</ModalBody>
         <ModalFooter>
-          <Button variant={ButtonVariant.secondary} onClick={onClose}>Cancel</Button>
-          <Button variant={ButtonVariant.primary}>Generate</Button>
+          <Button variant={ButtonVariant.secondary} onClick={onClose}>
+            Cancel
+          </Button>
+          <Button disabled={disableSubmit} variant={ButtonVariant.primary} onClick={onSubmit}>
+            Generate
+          </Button>
         </ModalFooter>
       </ModalContainer>
     </ModalBackground>
