@@ -1,37 +1,25 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useFetchSeriesCatalog } from "../../hooks/useFetchSeriesCatalog";
 
 import Modal from "../../layouts/Modal/Modal";
 import SearchList from "../SearchList/SearchList";
 import { SelectOptions } from "../SearchList/SearchListTypes";
+import { AddVisualizationProps } from "./AddVisualizationTypes";
 
-import {
-  AddVisualizationProps,
-  SeriesStorageTypes,
-} from "./AddVisualizationTypes";
-
-const AddVisualization = ({ shouldShow, onClose }: AddVisualizationProps) => {
+const AddVisualization = ({
+  shouldShow,
+  onSubmit,
+  onClose,
+}: AddVisualizationProps) => {
   const [serieSelected, setSerieSelected] = useState<null | SelectOptions>(
     null
   );
   const [disableSubmit, setDisableSubmit] = useState<boolean>(true);
-
   const [series] = useFetchSeriesCatalog();
 
   const handleSubmit = () => {
-    const seriesStorage: SeriesStorageTypes[] =
-      JSON.parse(localStorage.getItem("seriesStorage")!) || [];
-
-    if (!seriesStorage.some(({ id }) => id === serieSelected?.value)) {
-      localStorage.setItem(
-        "seriesStorage",
-        JSON.stringify([...seriesStorage, { id: serieSelected?.value }])
-      );
-
-      handleOnClose();
-    } else {
-      console.log("Serie already exist.");
-    }
+    onSubmit({ id: serieSelected?.value! });
+    handleOnClose();
   };
 
   const handleOnChange = (select: SelectOptions) => {

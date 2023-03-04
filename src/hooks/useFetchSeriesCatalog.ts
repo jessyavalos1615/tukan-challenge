@@ -9,7 +9,12 @@ export const useFetchSeriesCatalog = () => {
       try {
         const {
           data: { data },
-        } = await axiosInstance.get("");
+        } = await axiosInstance.get("/", {
+          headers: {
+            Authorization:
+              "01f04831044f073702d9244604d41c055e7c14bb96218e169926482fb5699788",
+          },
+        });
         setSeries(data);
       } catch (error) {
         console.log(error);

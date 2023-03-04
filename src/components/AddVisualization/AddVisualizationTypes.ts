@@ -1,6 +1,7 @@
 export interface AddVisualizationProps {
   shouldShow: boolean;
   onClose: () => void;
+  onSubmit: (serie: SeriesStorageTypes) => void;
 }
 
 export interface SeriesStorageTypes {
