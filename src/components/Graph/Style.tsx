@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const GraphContainer = styled.div`
-  margin: auto;
+  margin: 0 auto;
 
   @media (min-width: ${({ theme }) => theme.screen_sizes.mobileS}) {
     width: 400px;
@@ -26,4 +26,8 @@ export const GraphContainer = styled.div`
   @media (min-width: ${({ theme }) => theme.screen_sizes.laptopL}) {
     width: 400px;
   }
+`;
+
+export const GraphTitle = styled.span`
+  font-size: 16px;
 `;

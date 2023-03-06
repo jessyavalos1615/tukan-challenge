@@ -3,6 +3,7 @@ import React, { useMemo } from "react";
 
 import { seriesCatalog } from "../../utils/filterSeries";
 import { SearchListProps, SelectOptions } from "./SearchListTypes";
+import { SearchListContainer } from "./Style";
 
 const SearchList = ({ data, onChange, label, value }: SearchListProps) => {
   const options: SelectOptions[] = useMemo(
@@ -11,12 +12,14 @@ const SearchList = ({ data, onChange, label, value }: SearchListProps) => {
   );
 
   return (
-    <Select
-      options={options}
-      onChange={onChange}
-      placeholder={label}
-      value={value}
-    />
+    <SearchListContainer>
+      <Select
+        options={options}
+        onChange={onChange}
+        placeholder={label}
+        value={value}
+      />
+    </SearchListContainer>
   );
 };
 

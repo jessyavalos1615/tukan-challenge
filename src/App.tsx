@@ -13,11 +13,12 @@ import { setStorageValue } from "./utils/setStorageValue";
 import { getStorageValue } from "./utils/getStorageValue";
 import Graph from "./components/Graph/Graph";
 import Grid from "./layouts/Grid/Grid";
+import { SeriesDataTypes } from "./SeriesDataTypes";
 
 function App() {
+  const [series, setSeries] = useState<SeriesDataTypes[]>([]);
   const [shouldShow, setShouldShow] = useState<boolean>(false);
   const [seriesStorage, setSeriesStorage] = useState<SeriesStorageTypes[]>([]);
-  const [series, setSeries] = useState<any[]>([]);
 
   useEffect(() => {
     setSeriesStorage(getStorageValue("seriesStorage", []));
@@ -26,8 +27,8 @@ function App() {
   useEffect(() => {
     (async () => {
       let newArray = await Promise.all(
-        seriesStorage.map(async ({ id }, i) => {
-          const { data } = await axiosInstance.get(`/${id}`, {
+        seriesStorage.map(async ({ id, dateRange: { start, end } }, i) => {
+          const { data } = await axiosInstance.get(`/${id}/${start}/${end}`, {
             headers: {
               Authorization:
                 "01f04831044f073702d9244604d41c055e7c14bb96218e169926482fb5699788",
@@ -36,10 +37,7 @@ function App() {
             },
           });
 
-          return {
-            ...data.bmx.series[0],
-            datos: data.bmx.series[0].datos.slice(0, 6),
-          };
+          return data.bmx.series[0];
         })
       );
       setSeries(newArray);
@@ -69,8 +67,8 @@ function App() {
           <hr />
         </section>
         <Grid>
-          {series.map(({ titulo }: any, index: number) => (
-            <Graph key={index} />
+          {series.map((data: SeriesDataTypes, index: number) => (
+            <Graph key={index} serie={data} />
           ))}
         </Grid>
       </main>

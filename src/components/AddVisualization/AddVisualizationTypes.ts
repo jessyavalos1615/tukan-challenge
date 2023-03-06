@@ -1,3 +1,5 @@
+import { SelectOptions } from "../SearchList/SearchListTypes";
+
 export interface AddVisualizationProps {
   shouldShow: boolean;
   onClose: () => void;
@@ -6,6 +8,7 @@ export interface AddVisualizationProps {
 
 export interface SeriesStorageTypes {
   id: string;
+  dateRange: DateRangeTypes
 }
 
 export interface SeriesTypes {
@@ -17,4 +20,14 @@ export interface SeriesTypes {
 
 export enum UnitID {
   Mxn = "MXN",
+}
+
+export interface DateRangeTypes {
+  start: string;
+  end: string;
+}
+
+export interface VisualizationOptionsTypes {
+  serieSelected: null | SelectOptions;
+  dateRange: DateRangeTypes;
 }

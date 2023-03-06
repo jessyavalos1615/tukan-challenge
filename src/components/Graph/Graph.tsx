@@ -1,38 +1,32 @@
 import { CChart } from "@coreui/react-chartjs";
 import React from "react";
-import { GraphContainer } from "./Style";
+import { GraphProps } from "./GraphTypes";
+import { GraphContainer, GraphTitle } from "./Style";
 
-const Graph = () => {
+const Graph = ({ serie }: GraphProps) => {
+  const { titulo, datos } = serie;
+  const labels = datos.map((dato) => dato.fecha);
+  const data = datos.map(({ dato }) => {
+    return Number(dato.replace(",", ""));
+  });
   return (
     <GraphContainer>
+      <div style={{textAlign: 'justify'}}>
+
+      <GraphTitle>{titulo}</GraphTitle>
+      </div>
       <CChart
         type="line"
         data={{
-          labels: [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-          ],
+          labels,
           datasets: [
             {
-              label: "My First dataset",
-              backgroundColor: "rgba(220, 220, 220, 0.2)",
-              borderColor: "rgba(220, 220, 220, 1)",
-              pointBackgroundColor: "rgba(220, 220, 220, 1)",
+              label: "",
+              backgroundColor: "#0a1a42",
+              borderColor: "#2b5aa5",
+              pointBackgroundColor: "#0a1a42",
               pointBorderColor: "#fff",
-              data: [40, 20, 12, 39, 10, 40, 39, 80, 40],
-            },
-            {
-              label: "My Second dataset",
-              backgroundColor: "rgba(151, 187, 205, 0.2)",
-              borderColor: "rgba(151, 187, 205, 1)",
-              pointBackgroundColor: "rgba(151, 187, 205, 1)",
-              pointBorderColor: "#fff",
-              data: [50, 12, 28, 29, 7, 25, 12, 70, 60],
+              data,
             },
           ],
         }}
