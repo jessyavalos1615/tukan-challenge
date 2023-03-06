@@ -1,36 +1,75 @@
-import { useState } from "react";
-import { useFetchSeriesCatalog } from "../../hooks/useFetchSeriesCatalog";
+import { useEffect, useState } from "react";
 
 import Modal from "../../layouts/Modal/Modal";
+import DateRange from "../DateRange/DateRange";
 import SearchList from "../SearchList/SearchList";
+
 import { SelectOptions } from "../SearchList/SearchListTypes";
-import { AddVisualizationProps } from "./AddVisualizationTypes";
+import {
+  AddVisualizationProps,
+  VisualizationOptionsTypes,
+} from "./AddVisualizationTypes";
+import { useFetchSeriesCatalog } from "../../hooks/useFetchSeriesCatalog";
+import { getFormatDate } from "../../utils/getFormatDate";
 
 const AddVisualization = ({
   shouldShow,
   onSubmit,
   onClose,
 }: AddVisualizationProps) => {
-  const [serieSelected, setSerieSelected] = useState<null | SelectOptions>(
-    null
-  );
-  const [disableSubmit, setDisableSubmit] = useState<boolean>(true);
   const [series] = useFetchSeriesCatalog();
+  const [disableSubmit, setDisableSubmit] = useState<boolean>(true);
+  const [visualizationOptions, setVisualizationOptions] =
+    useState<VisualizationOptionsTypes>({
+      serieSelected: null,
+      dateRange: {
+        start: "",
+        end: "",
+      },
+    });
 
-  const handleSubmit = () => {
-    onSubmit({ id: serieSelected?.value! });
-    handleOnClose();
+  useEffect(() => {
+    const { dateRange, serieSelected } = visualizationOptions;
+    const isComplete =
+      serieSelected !== null && dateRange.start !== "" && dateRange.end !== "";
+
+    setDisableSubmit(!isComplete);
+  }, [visualizationOptions]);
+
+  const handleOnChangeSelect = (select: SelectOptions) => {
+    setVisualizationOptions((prevState) => ({
+      ...prevState,
+      serieSelected: select,
+    }));
   };
 
-  const handleOnChange = (select: SelectOptions) => {
-    setSerieSelected(select);
-    setDisableSubmit(false);
+  const handleOnChangeDate = (e: any) => {
+    let dateRange = {
+      start: "",
+      end: "",
+    };
+    if (e) {
+      dateRange.start = getFormatDate(e[0]);
+      dateRange.end = getFormatDate(e[1]);
+    }
+    setVisualizationOptions((prevState) => ({ ...prevState, dateRange }));
+  };
+
+  const handleSubmit = () => {
+    const { dateRange, serieSelected } = visualizationOptions;
+    onSubmit({ id: serieSelected?.value!, dateRange });
+    handleOnClose();
   };
 
   const handleOnClose = () => {
     onClose();
-    setSerieSelected(null);
-    setDisableSubmit(true);
+    setVisualizationOptions({
+      serieSelected: null,
+      dateRange: {
+        start: "",
+        end: "",
+      },
+    });
   };
 
   return (
@@ -43,10 +82,11 @@ const AddVisualization = ({
     >
       <SearchList
         data={series}
-        value={serieSelected}
-        onChange={handleOnChange}
+        value={visualizationOptions.serieSelected}
+        onChange={handleOnChangeSelect}
         label="Choose Banxico's Serie"
       />
+      <DateRange onChange={handleOnChangeDate} />
     </Modal>
   );
 };
