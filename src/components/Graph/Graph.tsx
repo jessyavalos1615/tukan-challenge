@@ -5,15 +5,14 @@ import { GraphContainer, GraphTitle } from "./Style";
 
 const Graph = ({ serie }: GraphProps) => {
   const { titulo, datos } = serie;
-  const labels = datos.map((dato) => dato.fecha);
-  const data = datos.map(({ dato }) => {
+  const labels = datos?.map((dato) => dato.fecha);
+  const data = datos?.map(({ dato }) => {
     return Number(dato.replace(",", ""));
   });
   return (
     <GraphContainer>
-      <div style={{textAlign: 'justify'}}>
-
-      <GraphTitle>{titulo}</GraphTitle>
+      <div style={{ textAlign: "center", marginBottom: '10px' }}>
+        <GraphTitle>{`${titulo}${!datos && '\n Data doesn\'t exist' }`}</GraphTitle>
       </div>
       <CChart
         type="line"
