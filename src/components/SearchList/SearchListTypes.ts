@@ -1,5 +1,4 @@
 export interface SearchListProps {
-  data: any[];
   value?: any;
   label: string;
   onChange: (e: any) => void;

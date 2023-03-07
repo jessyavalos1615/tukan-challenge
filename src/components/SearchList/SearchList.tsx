@@ -1,23 +1,24 @@
-import Select from "react-select";
-import React, { useMemo } from "react";
+import { AsyncPaginate } from "react-select-async-paginate";
 
-import { seriesCatalog } from "../../utils/filterSeries";
-import { SearchListProps, SelectOptions } from "./SearchListTypes";
 import { SearchListContainer } from "./Style";
+import { SearchListProps } from "./SearchListTypes";
+import loadOptions from "./AsyncOptions";
 
-const SearchList = ({ data, onChange, label, value }: SearchListProps) => {
-  const options: SelectOptions[] = useMemo(
-    () => data.map(seriesCatalog),
-    [data]
-  );
-
+const SearchList = ({ onChange, label, value }: SearchListProps) => {
   return (
     <SearchListContainer>
-      <Select
-        options={options}
-        onChange={onChange}
-        placeholder={label}
+      <AsyncPaginate
+        loadOptions={loadOptions}
         value={value}
+        getOptionValue={(option: any) => option.variable}
+        getOptionLabel={(option: any) => option.display_name}
+        onChange={onChange}
+        additional={{
+          page: 0,
+        }}
+        isSearchable={true}
+        placeholder={label}
+        debounceTimeout={500}
       />
     </SearchListContainer>
   );
