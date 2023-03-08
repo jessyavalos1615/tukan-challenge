@@ -1,19 +1,30 @@
-import { CChart } from "@coreui/react-chartjs";
 import React from "react";
-import { GraphProps } from "./GraphTypes";
-import { GraphContainer, GraphTitle } from "./Style";
+import { CChart } from "@coreui/react-chartjs";
 
-const Graph = ({ serie }: GraphProps) => {
+import Icon from "../Icon/Icon";
+import { GraphProps } from "./GraphTypes";
+import editIcon from "../../assets/icon/edit.svg";
+import deleteIcon from "../../assets/icon/delete.svg";
+import { GraphActions, GraphContainer, GraphHeader, GraphTitle } from "./Style";
+
+const Graph = ({ serie, handleEdit, handleDelete }: GraphProps) => {
   const { titulo, datos } = serie;
   const labels = datos?.map((dato) => dato.fecha);
   const data = datos?.map(({ dato }) => {
     return Number(dato.replace(",", ""));
   });
+
   return (
     <GraphContainer>
-      <div style={{ textAlign: "center", marginBottom: '10px' }}>
-        <GraphTitle>{`${titulo}${!datos && '\n Data doesn\'t exist' }`}</GraphTitle>
-      </div>
+      <GraphActions>
+        <Icon icon={editIcon} onClick={() => handleEdit(serie)} />
+        <Icon icon={deleteIcon} onClick={() => handleDelete(serie.id)} />
+      </GraphActions>
+      <GraphHeader>
+        <GraphTitle>{`${titulo}${
+          !datos ? "\n (Data doesn't exist)" : ""
+        }`}</GraphTitle>
+      </GraphHeader>
       <CChart
         type="line"
         data={{

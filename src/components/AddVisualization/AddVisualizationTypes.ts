@@ -2,10 +2,14 @@ export interface AddVisualizationProps {
   shouldShow: boolean;
   onClose: () => void;
   onSubmit: (serie: SeriesStorageTypes) => void;
+  onUpdate: (serie: SeriesStorageTypes) => void;
+  isUpdate?: boolean;
+  value?: any;
 }
 
 export interface SeriesStorageTypes {
   id: string;
+  serie: string;
   dateRange: DateRangeTypes;
 }
 

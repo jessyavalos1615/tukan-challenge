@@ -4,4 +4,5 @@ export interface BaseIconTypes {
 export interface IconProps extends BaseIconTypes {
     icon: string;
     alt?: string;
+    onClick?: () => void;
 }
