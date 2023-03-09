@@ -1,19 +1,23 @@
 {
   "files": {
-    "main.css": "/tukan-challenge/static/css/main.6925a369.css",
-    "main.js": "/tukan-challenge/static/js/main.7a3224d3.js",
+    "main.css": "/tukan-challenge/static/css/main.505fc565.css",
+    "main.js": "/tukan-challenge/static/js/main.a006b770.js",
+    "static/js/707.e592db8a.chunk.js": "/tukan-challenge/static/js/707.e592db8a.chunk.js",
     "static/js/787.14fba0cd.chunk.js": "/tukan-challenge/static/js/787.14fba0cd.chunk.js",
+    "static/js/177.29e70a5b.chunk.js": "/tukan-challenge/static/js/177.29e70a5b.chunk.js",
     "static/media/tukan_logo_trim.fa49c6d7.png": "/tukan-challenge/static/media/tukan_logo_trim.fa49c6d7.1b39591926aaa247f961.png",
     "static/media/edit.svg": "/tukan-challenge/static/media/edit.f5e4549c8052a969097b52eb9a19ad99.svg",
     "static/media/delete.svg": "/tukan-challenge/static/media/delete.2e2793cb2fcf1ae57a0c8c147f8f53e1.svg",
     "index.html": "/tukan-challenge/index.html",
     "static/media/plus-alt.svg": "/tukan-challenge/static/media/plus-alt.4d4cd2acfd9e3b4daa28b5a45f022a92.svg",
-    "main.6925a369.css.map": "/tukan-challenge/static/css/main.6925a369.css.map",
-    "main.7a3224d3.js.map": "/tukan-challenge/static/js/main.7a3224d3.js.map",
-    "787.14fba0cd.chunk.js.map": "/tukan-challenge/static/js/787.14fba0cd.chunk.js.map"
+    "main.505fc565.css.map": "/tukan-challenge/static/css/main.505fc565.css.map",
+    "main.a006b770.js.map": "/tukan-challenge/static/js/main.a006b770.js.map",
+    "707.e592db8a.chunk.js.map": "/tukan-challenge/static/js/707.e592db8a.chunk.js.map",
+    "787.14fba0cd.chunk.js.map": "/tukan-challenge/static/js/787.14fba0cd.chunk.js.map",
+    "177.29e70a5b.chunk.js.map": "/tukan-challenge/static/js/177.29e70a5b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6925a369.css",
-    "static/js/main.7a3224d3.js"
+    "static/css/main.505fc565.css",
+    "static/js/main.a006b770.js"
   ]
 }
