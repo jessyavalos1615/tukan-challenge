@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tukan-challenge/static/css/main.505fc565.css",
-    "main.js": "/tukan-challenge/static/js/main.a006b770.js",
+    "main.js": "/tukan-challenge/static/js/main.de0f5075.js",
     "static/js/707.e592db8a.chunk.js": "/tukan-challenge/static/js/707.e592db8a.chunk.js",
     "static/js/787.14fba0cd.chunk.js": "/tukan-challenge/static/js/787.14fba0cd.chunk.js",
     "static/js/177.29e70a5b.chunk.js": "/tukan-challenge/static/js/177.29e70a5b.chunk.js",
@@ -11,13 +11,13 @@
     "index.html": "/tukan-challenge/index.html",
     "static/media/plus-alt.svg": "/tukan-challenge/static/media/plus-alt.4d4cd2acfd9e3b4daa28b5a45f022a92.svg",
     "main.505fc565.css.map": "/tukan-challenge/static/css/main.505fc565.css.map",
-    "main.a006b770.js.map": "/tukan-challenge/static/js/main.a006b770.js.map",
+    "main.de0f5075.js.map": "/tukan-challenge/static/js/main.de0f5075.js.map",
     "707.e592db8a.chunk.js.map": "/tukan-challenge/static/js/707.e592db8a.chunk.js.map",
     "787.14fba0cd.chunk.js.map": "/tukan-challenge/static/js/787.14fba0cd.chunk.js.map",
     "177.29e70a5b.chunk.js.map": "/tukan-challenge/static/js/177.29e70a5b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.505fc565.css",
-    "static/js/main.a006b770.js"
+    "static/js/main.de0f5075.js"
   ]
 }
