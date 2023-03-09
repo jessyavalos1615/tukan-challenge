@@ -7,7 +7,7 @@ import { DateRangeContainer } from "./Style";
 const DateRange = ({ value, onChange }: DateRangeProps) => {
   return (
     <DateRangeContainer>
-      <DateRangePicker value={value} placeholder="Choose range date" onChange={onChange} />
+      <DateRangePicker showOneCalendar value={value} placement='bottomEnd' placeholder="Choose range date" onChange={onChange} />
     </DateRangeContainer>
   );
 };

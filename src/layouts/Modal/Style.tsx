@@ -26,7 +26,7 @@ export const ModalBackground = styled.div`
 
 export const ModalContainer = styled.div`
   display: inline-block;
-  min-width: 500px;
+  min-width: 300px;
   max-width: 500px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 10px;
@@ -34,6 +34,11 @@ export const ModalContainer = styled.div`
   transition: all 0.5s ease-in-out;
 
   transform: translateY(-300px);
+
+  @media (min-width: ${({ theme }) => theme.screen_sizes.tablet}) {
+    min-width: 500px;
+    max-width: 300px;
+  }
 `;
 
 export const ModalHeader = styled.div`

@@ -9,8 +9,12 @@ export const GraphContainer = styled.div`
     right: 0;
   }
 
+  &:last-child {
+    margin-bottom: 50px;
+  }
+
   @media (min-width: ${({ theme }) => theme.screen_sizes.mobileS}) {
-    width: 400px;
+    width: 260px;
   }
 
   @media (min-width: ${({ theme }) => theme.screen_sizes.mobileM}) {
@@ -18,7 +22,7 @@ export const GraphContainer = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.screen_sizes.mobileL}) {
-    width: 400px;
+    width: 350px;
   }
 
   @media (min-width: ${({ theme }) => theme.screen_sizes.tablet}) {

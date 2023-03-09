@@ -5,5 +5,3 @@ const axiosInstance = axios.create({
 });
 
 export default axiosInstance;
-
-// "Bmx-Token": "edcaacac167fc5a766869b4778ce85e408eecf6908517692d8846bbce025a00c",
