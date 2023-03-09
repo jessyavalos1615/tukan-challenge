@@ -42,8 +42,6 @@ const AddVisualization = ({
           },
           dateRange: value.range,
         });
-
-        console.log(setFormatDate(value.range.end))
         setDateRange([
           new Date(setFormatDate(value.range.start)),
           new Date(setFormatDate(value.range.end)),

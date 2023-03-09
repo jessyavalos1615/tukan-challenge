@@ -17,7 +17,7 @@ export const useFetchSeriesCatalog = () => {
         });
         setSeries(data);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     })();
   }, []);

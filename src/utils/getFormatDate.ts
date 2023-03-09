@@ -7,6 +7,5 @@ export const getFormatDate = (date: Date): string =>
 
 export const setFormatDate = (date: string): Date => {
   const dateArr = date.split("-");
-  console.log(dateArr);
   return new Date(`${dateArr[1]}/${dateArr[2]}/${dateArr[0]}`);
 };
