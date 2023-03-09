@@ -55,6 +55,7 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "@types/styled-components": "^5.1.26",
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "jest-canvas-mock": "^2.4.0"
   }
 }

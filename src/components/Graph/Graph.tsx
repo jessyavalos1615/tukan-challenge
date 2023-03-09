@@ -17,8 +17,16 @@ const Graph = ({ serie, handleEdit, handleDelete }: GraphProps) => {
   return (
     <GraphContainer>
       <GraphActions>
-        <Icon icon={editIcon} onClick={() => handleEdit(serie)} />
-        <Icon icon={deleteIcon} onClick={() => handleDelete(serie.id)} />
+        <Icon
+          icon={editIcon}
+          onClick={() => handleEdit(serie)}
+          alt="edit-icon"
+        />
+        <Icon
+          icon={deleteIcon}
+          onClick={() => handleDelete(serie.id)}
+          alt="delete-icon"
+        />
       </GraphActions>
       <GraphHeader>
         <GraphTitle>{`${titulo}${

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Button from "../../components/Button/Button";
 
@@ -22,6 +22,10 @@ const Modal = ({
   shouldShow,
   disableSubmit,
 }: ModalProps) => {
+  useEffect(() => {
+    document.body.style.overflow = shouldShow ? "hidden" : "unset";
+  }, [shouldShow]);
+
   return (
     <ModalBackground className={classNames({ show: shouldShow })}>
       <ModalContainer className={classNames("modal-container")}>
@@ -33,7 +37,11 @@ const Modal = ({
           <Button variant={ButtonVariant.secondary} onClick={onClose}>
             Cancel
           </Button>
-          <Button disabled={disableSubmit} variant={ButtonVariant.primary} onClick={onSubmit}>
+          <Button
+            disabled={disableSubmit}
+            variant={ButtonVariant.primary}
+            onClick={onSubmit}
+          >
             Generate
           </Button>
         </ModalFooter>

@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 
-import Grid from "./layouts/Grid/Grid";
 import Icon from "./components/Icon/Icon";
-import Graph from "./components/Graph/Graph";
 import Button from "./components/Button/Button";
 import Header from "./components/Header/Header";
 import AddVisualization from "./components/AddVisualization/AddVisualization";
@@ -15,6 +13,10 @@ import { SeriesStorageTypes } from "./components/AddVisualization/AddVisualizati
 
 import axiosInstance from "./Axios/Axios";
 import plusIcon from "./assets/icon/plus-alt.svg";
+
+const GraphContainer = lazy(
+  () => import("./components/GraphContainer/GraphContainer")
+);
 
 function App() {
   const [serieUpdate, setSerieUpdate] = useState<any>(null);
@@ -31,7 +33,7 @@ function App() {
       let newArray = await Promise.all(
         seriesStorage.map(
           async ({ id, serie, dateRange: { start, end } }, i) => {
-            const { data } = await axiosInstance.get(
+            const { data }: any = await axiosInstance.get(
               `/${serie}/${start}/${end}`,
               {
                 headers: {
@@ -99,7 +101,7 @@ function App() {
   };
 
   return (
-    <div>
+    <>
       <Header />
       <main>
         <section>
@@ -113,16 +115,13 @@ function App() {
           </Button>
           <hr />
         </section>
-        <Grid>
-          {series.map((data: SeriesDataTypes, index: number) => (
-            <Graph
-              key={index}
-              serie={data}
-              handleEdit={handleEdit}
-              handleDelete={handleDelete}
-            />
-          ))}
-        </Grid>
+        <Suspense fallback={<div>Loading...</div>}>
+          <GraphContainer
+            series={series}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+          />
+        </Suspense>
       </main>
 
       <AddVisualization
@@ -133,7 +132,7 @@ function App() {
         onUpdate={handleUpdate}
         isUpdate={serieUpdate !== null}
       />
-    </div>
+    </>
   );
 }
 
