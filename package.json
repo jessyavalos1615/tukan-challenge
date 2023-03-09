@@ -2,6 +2,7 @@
   "name": "tukan-challenge",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jessyavalos1615.github.io/tukan-challenge",
   "dependencies": {
     "@coreui/react-chartjs": "^2.1.2",
     "@testing-library/jest-dom": "^5.16.5",
@@ -29,7 +30,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "coverage": "npm run test -- --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +54,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "gh-pages": "^5.0.0"
   }
 }
