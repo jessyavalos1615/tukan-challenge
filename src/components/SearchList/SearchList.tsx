@@ -1,8 +1,8 @@
 import { AsyncPaginate } from "react-select-async-paginate";
 
+import loadOptions from "./AsyncOptions";
 import { SearchListContainer } from "./Style";
 import { SearchListProps } from "./SearchListTypes";
-import loadOptions from "./AsyncOptions";
 
 const SearchList = ({ onChange, label, value }: SearchListProps) => {
   return (
