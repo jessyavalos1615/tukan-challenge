@@ -13,6 +13,7 @@ import { SeriesStorageTypes } from "./components/AddVisualization/AddVisualizati
 
 import axiosInstance from "./Axios/Axios";
 import plusIcon from "./assets/icon/plus-alt.svg";
+import Loader from "./components/Loader/Loader";
 
 const GraphContainer = lazy(
   () => import("./components/GraphContainer/GraphContainer")
@@ -115,7 +116,7 @@ function App() {
           </Button>
           <hr />
         </section>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           <GraphContainer
             series={series}
             handleEdit={handleEdit}
